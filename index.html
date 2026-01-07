@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه اینترنتی نمونه</title>
+    <style>
+        /* فونت‌های فارسی استاندارد (برای نمایش بهتر در همه مرورگرها) */
+        body {
+            font-family: Tahoma, 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        /* هدر و ناوبری */
+        .header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #eee;
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e91e63; /* رنگ اصلی فروشگاه */
+            text-decoration: none;
+        }
+
+        .nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #e91e63;
+        }
+
+        /* بخش اصلی (Hero) */
+        .hero {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: #e91e63;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #c2185b;
+        }
+
+        /* کانتینر اصلی محتوا */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* بخش محصولات */
+        .section-title {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 30px;
+            color: #333;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #e91e63;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: calc(33% - 20px); /* سه محصول در هر سطر در دسکتاپ */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: center;
+            padding-bottom: 15px;
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .product-title {
+            font-size: 16px;
+            margin: 10px 0 5px;
+            color: #333;
+            text-decoration: none;
+        }
+        .product-price {
+            color: #e91e63;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* بخش پست‌ها (Blog/News) - قسمت مهم درخواستی شما */
+        .post-section {
+            background-color: #ffffff;
+            padding: 40px 0;
+            margin-bottom: 60px;
+        }
+        .post-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .post-card {
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            width: calc(33% - 20px);
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .post-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .post-content {
+            padding: 15px;
+        }
+        .post-title {
+            font-size: 18px;
+            color: #333;
+            margin-top: 0;
+            text-decoration: none;
+        }
+        .post-excerpt {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .post-link {
+            display: inline-block;
+            color: #e91e63;
+            text-decoration: none;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        /* فوتر */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #aaa;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            color: #e91e63;
+        }
+
+        /* تنظیمات ریسپانسیو */
+        @media (max-width: 992px) {
+            .product-card, .post-card {
+                width: calc(50% - 15px);
+            }
+            .header {
+                flex-direction: column;
+            }
+            .nav {
+                margin-top: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .product-card, .post-card {
+                width: 100%;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- هدر -->
+    <header class="header">
+        <div class="logo">
+            <a href="#">فروشگاه من</a>
+        </div>
+        <nav class="nav">
+            <a href="#">صفحه اصلی</a>
+            <a href="#">فروشگاه</a>
+            <a href="#">محصولات ویژه</a>
+            <a href="#">درباره ما</a>
+            <a href="#">تماس با ما</a>
+        </nav>
+    </header>
+
+    <!-- بخش اصلی تبلیغاتی -->
+    <section class="hero">
+        <h1>جدیدترین مدل‌ها با بهترین قیمت</h1>
+        <p>همین حالا از تخفیفات ویژه بهاری ما بهره‌مند شوید.</p>
+        <a href="#" class="cta-button">خرید کنید</a>
+    </section>
+
+    <main class="container">
+        
+        <!-- بخش محصولات ویژه -->
+        <section class="featured-products">
+            <h2 class="section-title">محصولات پرفروش</h2>
+            <div class="product-grid">
+                
+                <!-- نمونه کارت محصول 1 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x200?text=Product+Image+1" alt="تصویر محصول 1">
+                    <a href="#" class="product-title">لپ تاپ مدل X500</a>
+                    <p class="product-price">25,000,000 تومان</p>
+                </div>
+                
+                <!-- نمونه کارت محصول 2 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x200?text=Product+Image+2" alt="تصویر محصول 2">
+                    <a href="#" class="product-title">ساعت هوشمند مدل Watch Pro</a>
+                    <p class="product-price">4,500,000 تومان</p>
+                </div>
+                
+                <!-- نمونه کارت محصول 3 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x200?text=Product+Image+3" alt="تصویر محصول 3">
+                    <a href="#" class="product-title">هدفون بی‌سیم مدل SoundMax</a>
+                    <p class="product-price">1,800,000 تومان</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- بخش پست‌گذاری در صفحه اصلی (اخبار/بلاگ) -->
+        <section class="post-section">
+            <h2 class="section-title">آخرین مقالات و اخبار</h2>
+            <div class="post-grid">
+                
+                <!-- نمونه کارت پست 1 -->
+                <div class="post-card">
+                    <img src="https://via.placeholder.com/600x360?text=Blog+Post+1" alt="تصویر پست 1">
+                    <div class="post-content">
+                        <a href="#" class="post-title">نکات مهم خرید تلویزیون 4K در سال 2026</a>
+                        <p class="post-excerpt">در این مقاله به بررسی جدیدترین فناوری‌های تلویزیون‌های 4K و راهنمای جامع خرید آن‌ها می‌پردازیم...</p>
+                        <a href="#" class="post-link">ادامه مطلب &rarr;</a>
+                    </div>
+                </div>
+                
+                <!-- نمونه کارت پست 2 -->
+                <div class="post-card">
+                    <img src="https://via.placeholder.com/600x360?text=Blog+Post+2" alt="تصویر پست 2">
+                    <div class="post-content">
+                        <a href="#" class="post-title">معرفی 5 ابزار کاربردی برای مدیریت بهتر کارها</a>
+                        <p class="post-excerpt">اگر به دنبال افزایش بهره‌وری خود هستید، این 5 ابزار نرم‌افزاری و فیزیکی را از دست ندهید...</p>
+                        <a href="#" class="post-link">ادامه مطلب &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- نمونه کارت پست 3 -->
+                <div class="post-card">
+                    <img src="https://via.placeholder.com/600x360?text=Blog+Post+3" alt="تصویر پست 3">
+                    <div class="post-content">
+                        <a href="#" class="post-title">چگونه باتری لپ‌تاپ خود را طولانی‌تر کنیم؟</a>
+                        <p class="post-excerpt">با رعایت چند ترفند ساده، عمر مفید باتری لپ‌تاپ خود را به طرز چشمگیری افزایش دهید...</p>
+                        <a href="#" class="post-link">ادامه مطلب &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- فوتر -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 فروشگاه اینترنتی نمونه. تمامی حقوق محفوظ است.</p>
+            <p>
+                <a href="#">قوانین و مقررات</a> | 
+                <a href="#">حریم خصوصی</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
