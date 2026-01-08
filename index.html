@@ -3,168 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فروشگاه اینترنتی نمونه</title>
+    <title>فروشگاه من</title>
     <style>
-        /* فونت‌های فارسی استاندارد (برای نمایش بهتر در همه مرورگرها) */
+        /* تنظیمات پایه برای زبان فارسی */
         body {
-            font-family: Tahoma, 'Segoe UI', sans-serif;
+            font-family: Tahoma, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background-color: #f4f4f9;
             color: #333;
         }
-
-        /* هدر و ناوبری */
-        .header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #eee;
-            padding: 10px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo a {
-            font-size: 24px;
-            font-weight: bold;
-            color: #e91e63; /* رنگ اصلی فروشگاه */
-            text-decoration: none;
-        }
-
-        .nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #555;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav a:hover {
-            color: #e91e63;
-        }
-
-        /* بخش اصلی (Hero) */
-        .hero {
-            background-color: #f1f1f1;
-            text-align: center;
-            padding: 100px 20px;
-            margin-bottom: 40px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .cta-button {
-            background-color: #e91e63;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #c2185b;
-        }
-
-        /* کانتینر اصلی محتوا */
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px 0;
         }
-
-        /* بخش محصولات */
+        /* استایل هدر */
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo a {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+        /* استایل بخش ها */
+        section {
+            padding: 40px 0;
+        }
         .section-title {
             text-align: center;
-            font-size: 30px;
+            color: #0056b3;
             margin-bottom: 30px;
-            color: #333;
-            position: relative;
+            font-size: 28px;
+            border-bottom: 2px solid #eee;
             padding-bottom: 10px;
+            display: inline-block;
+            width: 100%;
         }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: #e91e63;
+        /* استایل محصولات */
+        .featured-products {
+            background-color: #ffffff;
         }
-
         .product-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
         }
-
         .product-card {
-            background-color: white;
+            background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
-            width: calc(33% - 20px); /* سه محصول در هر سطر در دسکتاپ */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 15px;
             text-align: center;
-            padding-bottom: 15px;
-            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
         }
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
         .product-card img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
+            height: 180px; /* ارتفاع ثابت برای تصاویر */
+            object-fit: cover; /* نحوه نمایش تصویر در کادر */
+            border-radius: 6px;
+            margin-bottom: 10px;
         }
         .product-title {
+            display: block;
             font-size: 16px;
-            margin: 10px 0 5px;
+            font-weight: bold;
             color: #333;
             text-decoration: none;
+            margin-bottom: 8px;
+            height: 40px; /* محدود کردن ارتفاع عنوان برای یکنواختی */
+            overflow: hidden;
         }
         .product-price {
-            color: #e91e63;
             font-size: 18px;
+            color: #dc3545;
             font-weight: bold;
         }
 
-        /* بخش پست‌ها (Blog/News) - قسمت مهم درخواستی شما */
+        /* استایل بخش پست‌ها */
         .post-section {
-            background-color: #ffffff;
-            padding: 40px 0;
-            margin-bottom: 60px;
+            background-color: #e9ecef;
         }
         .post-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
         .post-card {
             background-color: #fff;
-            border: 1px solid #eee;
             border-radius: 8px;
-            width: calc(33% - 20px);
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .post-card img {
             width: 100%;
@@ -174,197 +125,167 @@
         .post-content {
             padding: 15px;
         }
-        .post-title {
-            font-size: 18px;
-            color: #333;
+        .post-content h3 {
             margin-top: 0;
-            text-decoration: none;
+            color: #007bff;
         }
-        .post-excerpt {
-            color: #777;
+        .post-content p {
             font-size: 14px;
-            line-height: 1.6;
+            color: #666;
         }
-        .post-link {
-            display: inline-block;
-            color: #e91e63;
-            text-decoration: none;
-            font-size: 13px;
-            margin-top: 10px;
-        }
-
-        /* فوتر */
-        .footer {
-            background-color: #333;
+        footer {
+            background-color: #343a40;
             color: white;
             text-align: center;
-            padding: 30px 0;
-            font-size: 14px;
-        }
-        .footer a {
-            color: #aaa;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .footer a:hover {
-            color: #e91e63;
-        }
-
-        /* تنظیمات ریسپانسیو */
-        @media (max-width: 992px) {
-            .product-card, .post-card {
-                width: calc(50% - 15px);
-            }
-            .header {
-                flex-direction: column;
-            }
-            .nav {
-                margin-top: 15px;
-            }
-        }
-        @media (max-width: 600px) {
-            .product-card, .post-card {
-                width: 100%;
-            }
-            .hero h1 {
-                font-size: 36px;
-            }
+            padding: 20px 0;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- هدر -->
-    <header class="header">
-        <div class="logo">
-            <a href="#">فروشگاه من</a>
+    <header>
+        <div class="container header-content">
+            <div class="logo"><a href="#">فروشگاه من</a></div>
+            <nav>
+                <a href="#">خانه</a>
+                <a href="#">محصولات</a>
+                <a href="#">درباره ما</a>
+                <a href="#">تماس با ما</a>
+            </nav>
         </div>
-        <nav class="nav">
-            <a href="#">صفحه اصلی</a>
-            <a href="#">فروشگاه</a>
-            <a href="#">محصولات ویژه</a>
-            <a href="#">درباره ما</a>
-            <a href="#">تماس با ما</a>
-        </nav>
     </header>
 
-    <!-- بخش اصلی تبلیغاتی -->
-    <section class="hero">
-        <h1>جدیدترین مدل‌ها با بهترین قیمت</h1>
-        <p>همین حالا از تخفیفات ویژه بهاری ما بهره‌مند شوید.</p>
-        <a href="#" class="cta-button">خرید کنید</a>
-    </section>
+    <main>
+        <div class="container">
+            
+            <!-- بخش محصولات ویژه -->
+            <section class="featured-products">
+                <h2 class="section-title">محصولات پرفروش</h2>
+                <div class="product-grid">
+                    
+                    <!-- کارت محصول 1 -->
+                    <div class="product-card">
+                        <img src="https://i.ibb.co/WptJWBZ5/Screenshot-Chrome.jpg" alt="تصویر محصول 1">
+                        <a href="#" class="product-title">ساپلای پس هفتگی 1$</a>
+                        <p class="product-price">126.000 تومان</p>
+                    </div>
+                    
+                    <!-- کارت محصول 2 -->
+                    <div class="product-card">
+                        <img src="https://i.ibb.co/hRS3ZQp8/Screenshot-Chrome.jpg" alt="تصویر محصول 2">
+                        <a href="#" class="product-title">ساپلای پس ماهانه 4$</a>
+                        <p class="product-price">455.000 تومان</p>
+                    </div>
+                    
+                    <!-- کارت محصول 3 -->
+                    <div class="product-card">
+                        <img src="https://i.ibb.co/67qhHLYq/Screenshot-Chrome.jpg" alt="تصویر محصول 3">
+                        <a href="#" class="product-title">مقدار 80 سیپی دوبل</a>
+                        <p class="product-price">126.000 تومان</p>
+                    </div>
 
-    <main class="container">
-        
-        <!-- بخش محصولات ویژه -->
-        <section class="featured-products">
-            <h2 class="section-title">محصولات پرفروش</h2>
-            <div class="product-grid">
-                
-                <!-- نمونه کارت محصول 1 -->
-                <div class="product-card">
-                    <img src="https://i.ibb.co/WptJWBZ5/Screenshot-Chrome.jpg" alt="تصویر محصول 1">
-                    <a href="#" class="product-title">ساپلای پس هفتگی 1$</a>
-                    <p class="product-price">126.000 تومان</p>
-                </div>
-                
-                <!-- نمونه کارت محصول 2 -->
-                <div class="product-card">
-                    <img src="https://i.ibb.co.com/fdzgkSFY/Screenshot-Google.jpg" alt="تصویر محصول 2">
-                    <a href="#" class="product-title">ساپلای پس ماهانه 4$</a>
-                    <p class="product-price">455.000 تومان</p>
-                </div>
-                
-                <!-- نمونه کارت محصول 3 -->
-                <div class="product-card">
-                    <img src="https://i.ibb.co/WptJWBZ5/Screenshot-Chrome.jpg" alt="تصویر محصول 3">
-                    <a href="#" class="product-title">مقدار 80 سیپی دوبل</a>
-                    <p class="product-price">126.000 تومان</p>
-                </div>
+                    <!-- کارت محصول 4 -->
+                    <div class="product-card">
+                        <img src="https://i.ibb.co/8Dd6VVcQ/Screenshot-Chrome.jpg" alt="تصویر محصول 4">
+                        <a href="#" class="product-title">مقدار 400 سیپی دوبل</a>
+                        <p class="product-price">750.000 تومان</p>
+                    </div>
 
-                <div class="product-card">
-                    <img src="https://i.ibb.co/hRS3ZQp8/Screenshot-Chrome.jpg" alt="تصویر محصول 3">
-                    <a href="#" class="product-title">مقدار 400 سیپی دوبل</a>
-                    <p class="product-price">750.000 تومان</p>
+                    <!-- کارت محصول 5 -->
+                    <div class="product-card">
+                        <img src="https://i.ibb.co/TBjN9p7g/Screenshot-Chrome.jpg" alt="تصویر محصول 5">
+                        <a href="#" class="product-title">مقدار 800 سیپی دوبل</a>
+                        <p class="product-price">1.400.000 تومان</p>
+                    </div>
+
+                    <!-- کارت محصول 6 -->
+                    <div class="product-card">
+                        <img src="https://i.ibb.co/chWFPvkQ/Screenshot-Chrome.jpg" alt="تصویر محصول 6">
+                        <a href="#" class="product-title">مقدار 2000 سیپی دوبل</a>
+                        <p class="product-price">3.540.000 تومان</p>
+                    </div>
+
+                    <!-- کارت محصول 7 -->
+                    <div class="product-card">
+                        <img src="https://i.ibb.co/MxMsvRwR/Screenshot-Chrome.jpg" alt="تصویر محصول 7">
+                        <a href="#" class="product-title">مقدار 4000 سیپی دوبل</a>
+                        <p class="product-price">7.055.000 تومان</p>
+                    </div>
+
+                    <!-- کارت محصول 8 -->
+                    <div class="product-card">
+                        <img src="https://i.ibb.co/CpXZB833/Screenshot-Chrome.jpg" alt="تصویر محصول 8">
+                        <a href="#" class="product-title">مقدار 8000 سیپی دوبل</a>
+                        <p class="product-price">14.049.000 تومان</p>
+                    </div>
+
+                    <!-- کارت محصول 9 (تکمیل با لینک‌های باقیمانده) -->
+                    <div class="product-card">
+                        <img src="https://i.ibb.co/N6ZVVb3b/Screenshot-Chrome.jpg" alt="تصویر محصول 9">
+                        <a href="#" class="product-title">باندل ویژه (لینک 9)</a>
+                        <p class="product-price">999.000 تومان</p>
+                    </div>
+
+                    <!-- کارت محصول 10 -->
+                    <div class="product-card">
+                        <img src="https://i.ibb.co/JRN7L9N7/Screenshot-Chrome.jpg" alt="تصویر محصول 10">
+                        <a href="#" class="product-title">باندل ویژه (لینک 10)</a>
+                        <p class="product-price">1.250.000 تومان</p>
+                    </div>
+                    
+                    <!-- کارت محصول 11 -->
+                    <div class="product-card">
+                        <img src="https://i.ibb.co/3mK4Yxh4/Screenshot-Chrome.jpg" alt="تصویر محصول 11">
+                        <a href="#" class="product-title">باندل ویژه (لینک 11)</a>
+                        <p class="product-price">1.800.000 تومان</p>
+                    </div>
+
                 </div>
+            </section>
 
-                <div class="product-card">
-                    <img src="https://i.ibb.co.com/fdzgkSFY/Screenshot-Google.jpg" alt="تصویر محصول 3">
-                    <a href="#" class="product-title">مقدار 800 سیپی دوبل</a>
-                    <p class="product-price">1.400.000 تومان</p>
-                </div>
+            <!-- بخش پست‌گذاری در صفحه اصلی (اخبار/بلاگ) -->
+            <section class="post-section">
+                <h2 class="section-title">آخرین مقالات و اخبار</h2>
+                <div class="post-grid">
+                    
+                    <!-- نمونه کارت پست 1 -->
+                    <div class="post-card">
+                        <img src="https://via.placeholder.com/400x200?text=پست+اول" alt="تصویر پست 1">
+                        <div class="post-content">
+                            <h3>نکات مهم در خرید سی‌پی</h3>
+                            <p>مروری بر آخرین ترفندها و بهترین زمان‌ها برای خرید ارزهای درون بازی...</p>
+                            <a href="#">ادامه مطلب</a>
+                        </div>
+                    </div>
 
-                <div class="product-card">
-                    <img src="https://i.ibb.co.com/fdzgkSFY/Screenshot-Google.jpg" alt="تصویر محصول 3">
-                    <a href="#" class="product-title">مقدار 2000 سیپی دوبل</a>
-                    <p class="product-price">3.540.000 تومان</p>
-                </div>
+                    <!-- نمونه کارت پست 2 -->
+                    <div class="post-card">
+                        <img src="https://via.placeholder.com/400x200?text=پست+دوم" alt="تصویر پست 2">
+                        <div class="post-content">
+                            <h3>آپدیت بزرگ ماه جاری منتشر شد</h3>
+                            <p>تغییرات اصلی در نقشه، اسلحه و سیزن جدید را در این مقاله بخوانید...</p>
+                            <a href="#">ادامه مطلب</a>
+                        </div>
+                    </div>
 
-                <div class="product-card">
-                    <img src="https://i.ibb.co.com/fdzgkSFY/Screenshot-Google.jpg" alt="تصویر محصول 3">
-                    <a href="#" class="product-title">مقدار 4000 سیپی دوبل</a>
-                    <p class="product-price">7.055.000 تومان</p>
-                </div>
-
-                <div class="product-card">
-                    <img src="https://i.ibb.co.com/fdzgkSFY/Screenshot-Google.jpg" alt="تصویر محصول 3">
-                    <a href="#" class="product-title">مقدار 8000 سیپی دوبل</a>
-                    <p class="product-price">14.049.000 تومان</p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- بخش پست‌گذاری در صفحه اصلی (اخبار/بلاگ) -->
-        <section class="post-section">
-            <h2 class="section-title">آخرین مقالات و اخبار</h2>
-            <div class="post-grid">
-                
-                <!-- نمونه کارت پست 1 -->
-                <div class="post-card">
-                    <img src="https://via.placeholder.com/600x360?text=Blog+Post+1" alt="تصویر پست 1">
-                    <div class="post-content">
-                        <a href="#" class="post-title">توضیحات درباره سیپی</a>
-                        <p class="post-excerpt">در این مقاله به بررسی جدیدترین فناوری‌های تلویزیون‌های 4K و راهنمای جامع خرید آن‌ها می‌پردازیم...</p>
-                        <a href="#" class="post-link">ادامه مطلب &rarr;</a>
+                     <!-- نمونه کارت پست 3 -->
+                    <div class="post-card">
+                        <img src="https://via.placeholder.com/400x200?text=پست+سوم" alt="تصویر پست 3">
+                        <div class="post-content">
+                            <h3>راهنمای ارتقاء سطح بتل پس</h3>
+                            <p>چگونه با کمترین هزینه، بتل پس خود را تا بالاترین سطح ارتقا دهید...</p>
+                            <a href="#">ادامه مطلب</a>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- نمونه کارت پست 2 -->
-                <div class="post-card">
-                    <img src="https://via.placeholder.com/600x360?text=Blog+Post+2" alt="تصویر پست 2">
-                    <div class="post-content">
-                        <a href="#" class="post-title">معرفی 5 ابزار کاربردی برای مدیریت بهتر کارها</a>
-                        <p class="post-excerpt">اگر به دنبال افزایش بهره‌وری خود هستید، این 5 ابزار نرم‌افزاری و فیزیکی را از دست ندهید...</p>
-                        <a href="#" class="post-link">ادامه مطلب &rarr;</a>
-                    </div>
-                </div>
+            </section>
 
-                <!-- نمونه کارت پست 3 -->
-                <div class="post-card">
-                    <img src="https://via.placeholder.com/600x360?text=Blog+Post+3" alt="تصویر پست 3">
-                    <div class="post-content">
-                        <a href="#" class="post-title">چگونه باتری لپ‌تاپ خود را طولانی‌تر کنیم؟</a>
-                        <p class="post-excerpt">با رعایت چند ترفند ساده، عمر مفید باتری لپ‌تاپ خود را به طرز چشمگیری افزایش دهید...</p>
-                        <a href="#" class="post-link">ادامه مطلب &rarr;</a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        
+        </div>
     </main>
 
-    <!-- فوتر -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 فروشگاه اینترنتی نمونه. تمامی حقوق محفوظ است.</p>
-            <p>
-                <a href="#">قوانین و مقررات</a> | 
-                <a href="#">حریم خصوصی</a>
-            </p>
-        </div>
+    <footer>
+        <p>&copy; 2026 فروشگاه من. تمامی حقوق محفوظ است.</p>
     </footer>
 
 </body>
